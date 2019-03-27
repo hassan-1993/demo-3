@@ -13,7 +13,7 @@ public class ApiConfig {
 
     private static  InMobileApi api ;
     private static Retrofit retrofit;
-    private static OkHttpClient httpClient;
+
 
 
 
@@ -30,13 +30,13 @@ public class ApiConfig {
     }
 
 
-    public static Retrofit getRetrofit(){
+    private static Retrofit getRetrofit(){
         if(retrofit==null){
             retrofit = new Retrofit.Builder()
                     .baseUrl("http://www.mocky.io/")
                     .addConverterFactory(GsonConverterFactory.create())
                     .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-                    .client(getHttpClient())
+                    .client(new OkHttpClient.Builder().build())
                     .build();
 
         }
@@ -45,11 +45,4 @@ public class ApiConfig {
     }
 
 
-    private static OkHttpClient getHttpClient(){
-        if(httpClient == null) {
-            OkHttpClient.Builder builder = new OkHttpClient.Builder();
-            httpClient = builder.build();
-        }
-        return httpClient;
-    }
 }

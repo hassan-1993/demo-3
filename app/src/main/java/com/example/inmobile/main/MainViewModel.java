@@ -70,7 +70,7 @@ public class MainViewModel extends AndroidViewModel {
 
 
     public LiveData<List<Data>> getData(){
-        if(dataListEvent == null){
+        if(dataListEvent == null ){
             dataListEvent = repository.getData(this::handleError);
         }
         return dataListEvent;
