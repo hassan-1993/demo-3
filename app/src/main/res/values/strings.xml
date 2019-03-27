@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">InMobile</string>
+
+
+    <string name="error_connection">Connection Failed</string>
+    <string name="error_unknown">Unknown error</string>
+</resources>
